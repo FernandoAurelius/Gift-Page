@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css2?family=Questrial&family=Space+Grotesk&display=swap');
+
+:root {
+    --cor-principal: #921A40;
+    --cor-secundaria: #C75B7A;
+    --cor-terciaria: #D9ABAB;
+    --cor-quaternaria: #F4D9D0;
+    --fonte-principal: "Questrial", sans-serif;
+    --fonte-secundaria: "Space Grotesk", sans-serif;
+    --tamanho-titulo: 36px;
+    --tamanho-texto: 1rem;
+}
+
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+body {
+    background-color: var(--cor-quaternaria);
+    box-sizing: border-box;
+}
+
+.cabecalho {
+    background-color: var(--cor-principal);
+    padding: 20px;
+}
+
+.cabecalho__menu {
+    display: flex;
+    gap: 30px;
+    margin: 0 0 0 10rem;
+}
+
+.cabecalho__menu__link {
+    color: var(--cor-quaternaria);
+    font-family: var(--fonte-principal);
+    font-size: var(--tamanho-texto);
+    text-decoration: none;
+}
+
+.principal {
+    display: flex;
+    flex-direction: column;
+    margin: 5rem 10rem 5rem 10rem;
+    gap: 10rem;
+}
+
+.principal__home {
+    display: flex;
+    gap: 2.5rem;
+    text-align: center;
+}
+
+.principal__titulo {
+    color: var(--cor-principal);
+    font-family: var(--fonte-secundaria);
+    font-size: var(--tamanho-titulo);
+}
+
+.principal__titulo-home {
+    margin: 2.5rem 0 0 0;
+}
+
+.principal__carta {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.principal__texto {
+    color: var(--cor-secundaria);
+    font-family: var(--fonte-secundaria);
+}
+
+.principal__imagem {
+    border-radius: 1rem;
+}
+
