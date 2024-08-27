@@ -7,8 +7,9 @@
     --cor-quaternaria: #F4D9D0;
     --fonte-principal: "Questrial", sans-serif;
     --fonte-secundaria: "Space Grotesk", sans-serif;
-    --tamanho-titulo: 36px;
-    --tamanho-texto: 1rem;
+    --tamanho-grande: 2.5rem;
+    --tamanho-pequeno: 1rem;
+    --tamanho-medio: 1.5rem;
 }
 
 * {
@@ -23,7 +24,7 @@ body {
 
 .cabecalho {
     background-color: var(--cor-principal);
-    padding: 20px;
+    padding: 1.75rem;
 }
 
 .cabecalho__menu {
@@ -35,19 +36,22 @@ body {
 .cabecalho__menu__link {
     color: var(--cor-quaternaria);
     font-family: var(--fonte-principal);
-    font-size: var(--tamanho-texto);
+    font-size: var(--tamanho-medio);
     text-decoration: none;
 }
 
 .principal {
     display: flex;
     flex-direction: column;
-    margin: 5rem 10rem 5rem 10rem;
-    gap: 10rem;
+    justify-content: center;
+    margin: 5rem 2.5rem;
+    gap: 5rem;
 }
 
 .principal__home {
     display: flex;
+    justify-content: center;
+    align-items: center;
     gap: 2.5rem;
     text-align: center;
 }
@@ -55,11 +59,7 @@ body {
 .principal__titulo {
     color: var(--cor-principal);
     font-family: var(--fonte-secundaria);
-    font-size: var(--tamanho-titulo);
-}
-
-.principal__titulo-home {
-    margin: 2.5rem 0 0 0;
+    font-size: var(--tamanho-grande);
 }
 
 .principal__carta {
@@ -71,9 +71,43 @@ body {
 .principal__texto {
     color: var(--cor-secundaria);
     font-family: var(--fonte-secundaria);
+    font-size: var(--tamanho-pequeno);
 }
 
 .principal__imagem {
     border-radius: 1rem;
 }
 
+.principal__fotos {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2.5rem;
+}
+
+.principal__fotos__galeria {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+    background-color: var(--cor-principal);
+    padding: 5rem;
+    border-radius: 5rem 5rem 5rem 0;
+}
+
+.principal__fotos__galeria__conjunto {
+    display: flex;
+    gap: 2.5rem;
+}
+
+.rodape {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+    background-color: var(--cor-principal);
+    color: var(--cor-quaternaria);
+    padding: 2rem;
+    font-family: var(--fonte-principal);
+    font-size: var(--tamanho-medio);
+}
