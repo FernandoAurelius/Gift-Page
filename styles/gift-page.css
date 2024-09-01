@@ -2,7 +2,7 @@
 
 :root {
     --cor-principal: #921A40;
-    --cor-secundaria: #C75B7A;
+    --cor-secundaria: #C75B7A;;
     --cor-terciaria: #D9ABAB;
     --cor-quaternaria: #F4D9D0;
     --fonte-principal: "Questrial", sans-serif;
@@ -15,16 +15,18 @@
 * {
     margin: 0px;
     padding: 0px;
+    scroll-behavior: smooth;
 }
 
 body {
-    background-color: var(--cor-quaternaria);
     box-sizing: border-box;
 }
 
 .cabecalho {
     background-color: var(--cor-principal);
     padding: 1.75rem;
+    width: 100%;
+    position: fixed;
 }
 
 .cabecalho__menu {
@@ -38,22 +40,30 @@ body {
     font-family: var(--fonte-principal);
     font-size: var(--tamanho-medio);
     text-decoration: none;
+    transition: .3s;
 }
+
+.cabecalho__menu__link:hover,
+.active {
+    color: var(--cor-secundaria);
+}
+
 
 .principal {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    margin: 5rem 2.5rem;
-    gap: 5rem;
+    background-color: var(--cor-quaternaria);
 }
 
-.principal__home {
+#principal__home {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 2.5rem;
+    padding: 1rem 2.5rem;
+    gap: 1.5rem;
     text-align: center;
+    min-height: 100vh;
 }
 
 .principal__titulo {
@@ -62,10 +72,13 @@ body {
     font-size: var(--tamanho-grande);
 }
 
-.principal__carta {
+#principal__carta {
     display: flex;
     flex-direction: column;
+    justify-content: center;
     text-align: center;
+    min-height: 100vh;
+    padding: 1rem 2.5rem;
 }
 
 .principal__texto {
@@ -78,12 +91,19 @@ body {
     border-radius: 1rem;
 }
 
-.principal__fotos {
+.principal__imagem-home {
+    width: 400px;
+    height: 250px;
+}
+
+#principal__fotos {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 2.5rem;
+    min-height: 100vh;
+    gap: 1rem;
+    padding: 1rem 2.5rem;
 }
 
 .principal__fotos__galeria {
@@ -91,7 +111,7 @@ body {
     flex-direction: column;
     gap: 2.5rem;
     background-color: var(--cor-principal);
-    padding: 5rem;
+    padding: 2.5rem;
     border-radius: 5rem 5rem 5rem 0;
 }
 
@@ -106,8 +126,12 @@ body {
     gap: 1rem;
     text-align: center;
     background-color: var(--cor-principal);
-    color: var(--cor-quaternaria);
-    padding: 2rem;
+    color: white;
+    padding: 1rem;
     font-family: var(--fonte-principal);
     font-size: var(--tamanho-medio);
+}
+
+section:nth-child(odd) {
+    background-color: var(--cor-terciaria);
 }

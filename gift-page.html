@@ -11,18 +11,18 @@
 <body>
     <header class="cabecalho">
         <nav class="cabecalho__menu">
-            <a class="cabecalho__menu__link" href="#">Home</a>
-            <a class="cabecalho__menu__link" href="#">Carta</a>
-            <a class="cabecalho__menu__link" href="#">Nossas fotos</a>
+            <a class="cabecalho__menu__link" href="#principal__home">Home</a>
+            <a class="cabecalho__menu__link" href="#principal__carta">Carta</a>
+            <a class="cabecalho__menu__link" href="#principal__fotos">Nossas fotos</a>
         </nav>
     </header>
     <main class="principal">
-        <section class="principal__home">
+        <section id="principal__home">
             <h1 class="principal__titulo">Essa página é um presente para você: Feliz Aniversário!</h1>
-            <img class="principal__imagem" src="../assets/gift-page-1.jpeg"
+            <img class="principal__imagem-home" src="../assets/gift-page-1.jpeg"
                 alt="Foto do aniversário do meu amigo fulano">
         </section>
-        <section class="principal__carta">
+        <section id="principal__carta">
             <h1 class="principal__titulo">Uma carta para você</h1>
             <p class="principal__texto">
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil officiis quidem iure nulla dolorem
@@ -42,7 +42,7 @@
                 voluptatibus magni accusantium fugit mollitia itaque, impedit natus tempora molestias.
             </p>
         </section>
-        <section class="principal__fotos">
+        <section id="principal__fotos">
             <h1 class="principal__titulo">Nossas fotos</h1>
             <div class="principal__fotos__galeria">
                 <div class="principal__fotos__galeria__conjunto">
@@ -137,6 +137,31 @@
 
                     }
                 })();
+
+                let sections = document.querySelectorAll('section');
+                let navLinks = document.querySelectorAll('header nav a');
+
+                window.onscroll = () => {
+                    document.addEventListener('DOMContentLoaded', () => {
+                        sections.forEach(sec => {
+                            let top = window.scrollY;
+                            let offset = sec.offsetTop - 150;
+                            let height = sec.offsetHeight;
+                            let id = sec.getAttribute('id');
+
+                            if (top >= offset && top < offset + height) {
+                                navLinks.forEach(link => {
+                                    link.classList.remove('active');
+                                    const activeLink = document.querySelector(`header nav a [href="#${id}"]`);
+                                    if (activeLink) {
+                                        activeLink.classList.add('active');
+                                    }
+                                });
+                            }
+                        });
+                    });
+                };
+
             });
         };
 
