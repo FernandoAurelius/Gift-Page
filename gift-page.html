@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../styles/gift-page.css">
+    <link rel="stylesheet" href="./styles/gift-page.css">
     <title>Página Presente</title>
 </head>
 
@@ -62,6 +62,87 @@
         <p>Criado em agosto de 2024</p>
         <p>Desenvolvido por Miguel Fernando</p>
     </footer>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <script>
+        const start = () => {
+            setTimeout(function () {
+                var duration = 15 * 1000;
+                var animationEnd = Date.now() + duration;
+                var skew = 1;
+
+                function randomInRange(min, max) {
+                    return Math.random() * (max - min) + min;
+                }
+
+                function getRandomRainbowColor() {
+                    const rainbowRanges = [
+                        // Red
+                        { min: "#ff0000", max: "#ff6000" },
+                        // Orange
+                        { min: "#ff6000", max: "#ffd000" },
+                        // Yellow
+                        { min: "#ffd000", max: "#ffff00" },
+                        // Green
+                        { min: "#ffff00", max: "#00ff00" },
+                        // Blue
+                        { min: "#00ff00", max: "#0000ff" },
+                        // Indigo
+                        { min: "#0000ff", max: "#4b0082" },
+                        // Violet
+                        { min: "#4b0082", max: "#7f00ff" }
+                    ];
+
+                    // Randomly select a rainbow range
+                    const randomRange = rainbowRanges[Math.floor(Math.random() * rainbowRanges.length)];
+
+                    // Convert hex color strings to integer values
+                    const minInt = parseInt(randomRange.min.replace("#", ""), 16);
+                    const maxInt = parseInt(randomRange.max.replace("#", ""), 16);
+
+                    // Generate a random integer within the range
+                    const randomInt = Math.floor(Math.random() * (maxInt - minInt + 1)) + minInt;
+
+                    // Convert the random integer back to hex color string
+                    const randomColor = "#" + randomInt.toString(16).padStart(6, "0");
+
+                    return randomColor;
+                }
+
+                (function
+                    frame() {
+                    var timeLeft = animationEnd - Date.now();
+                    var ticks = Math.max(200, 500 * (timeLeft / duration));
+                    skew = Math.max(0.8, skew - 0.001);
+
+
+                    const color = getRandomRainbowColor(); // Generate random color for each particle
+
+                    confetti({
+                        particleCount: 1,
+                        startVelocity: 0,
+                        ticks: ticks,
+                        origin: {
+                            x: Math.random(),
+                            y: (Math.random() * skew) - 0.2
+                        },
+                        colors: [color], // Set the generated color
+                        shapes: ['circle'],
+                        gravity: randomInRange(0.4, 0.6),
+                        scalar: randomInRange(0.4, 1),
+                        drift: randomInRange(-0.4, 0.4)
+                    });
+
+                    if (timeLeft > 0) {
+                        requestAnimationFrame(frame);
+
+                    }
+                })();
+            });
+        };
+
+        start();
+
+    </script>
 </body>
 
 </html>
