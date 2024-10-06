@@ -35,7 +35,7 @@ body {
     display: flex;
     gap: 2%;
     justify-content: center;
-    width: 93%;
+    width: 100%;
 }
 
 .cabecalho__menu__link {
@@ -156,7 +156,7 @@ section:nth-child(odd) {
     }
 
     .cabecalho__menu {
-        width: 90%;
+        width: 100%;
         justify-content: center;
     }
 
